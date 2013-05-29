@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<!-- saved from url=(0014)about:internet -->
+<TITLE>Zoom</TITLE>
+<SCRIPT>
+var g_oZoomInfo = window.opener.g_oZoomInfo;
+</SCRIPT>
+<HEAD>
+<BODY marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+
+<SCRIPT>
+
+function ShowImage(strFileName)
+{
+	document.write("<img src='"+ strFileName + "'/>");
+}
+
+function ShowSWF(strFileName)
+{
+	document.write("<OB"+"JECT classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' ");
+	document.write("codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,79,0' ");
+	document.write("WIDTH='100%' HEIGHT='100%' ID='player' ALIGN=''> ");
+	document.write("<PARAM NAME=movie VALUE='" + strFileName + "'> ");
+	document.write("<PARAM NAME=quality VALUE='best'> ");
+	document.write("<PARAM NAME=scale VALUE='show all'> ");
+	document.write("<PARAM NAME=menu VALUE='false'>");
+	document.write("<EM"+"BED WIDTH='100%' HEIGHT='100%' src='"+strFileName+"' NAME='player' quality='best' scale='show all'  ALIGN='' ");
+	document.write(" TYPE='application/x-shockwave-flash' PLUGINSPAGE='http://www.macromedia.com/go/getflashplayer' swLiveConnect='true' menu='false'></EM"+"BED>");
+	document.write("</OB"+"JECT> ");
+
+}
+
+function Zoom()
+{
+	var strFileName = g_oZoomInfo.strFileName;
+	var strExt = "";
+
+	strExt = strFileName.substr(strFileName.lastIndexOf("."));
+	strExt = strExt.toLowerCase();
+
+	if (strExt == ".swf")
+	{
+		ShowSWF(strFileName);
+	}
+	else
+	{
+		ShowImage(strFileName);
+	}	
+}
+
+Zoom();
+
+
+</SCRIPT>
+
+</BODY>
+</HTML>
